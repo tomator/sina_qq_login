@@ -1,0 +1,27 @@
+﻿<ServiceMetadata
+    Decoder="com.oauthTest.service.JsonDecoder"
+    Encoder="com.oauthTest.service.JsonEncoder"
+    Message="对不起，连接超时..."
+    Shell="com.oauthTest.utils.ServiceShell"
+    Timeout="15" >
+
+    <Urls>
+
+        <!-- 新浪获取oauth2.0认证 -->
+        <Url
+            Name="sina_access_token"
+            Value="https://api.weibo.com/oauth2/" />
+    </Urls>
+
+    <ServiceMethods>
+
+        <!-- 获取订单================= -->
+        <ServiceMethod
+            Message="获取新浪token信息"
+            Method="POST"
+            Name="getSinaTokenInfo"
+            Parameters="client_id,client_secret,grant_type,code,redirect_uri"
+            Url="[sina_access_token]access_token"/>
+    </ServiceMethods>
+
+</ServiceMetadata>
